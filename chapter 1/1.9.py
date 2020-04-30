@@ -7,6 +7,16 @@
 #104. 1.9 Think about the earlier hint. Then think about what happens when you concatenate erbottlewat to itself. You get erbottlewaterbottlewat
 
 
+
+def isStringRotation(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    s3= s1+s1
+    if isSubstring(s3, s2):
+        return True
+    return False
+
+
 def isSubstring(str1, str2):
     if len(str1) < len(str2):
         subString = str1
@@ -23,24 +33,19 @@ def isSubstring(str1, str2):
             i += 1
             j += 1
             matchCount -= 1
+            
             if matchCount == 0:
                 return True
-        if string[i] != subString[j]:
+            
+        elif string[i] != subString[j]:
             i += 1
             j = 0
             matchCount = len(subString)
-
-        return False
-
-def isStringRotation(s1, s2):
-    if len(s1) != len(s2):
-        return False
-    s3= s1+s1
-    if isSubstring(s3, s2):
-        return True
+            
     return False
-
+     
+    
 str1 = "waterbottle"
-str2 = "terbottlewa"
+str2 = "erbottlewat"
 
 print(isStringRotation(str1,str2))
