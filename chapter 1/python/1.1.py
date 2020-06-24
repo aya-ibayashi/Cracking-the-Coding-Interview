@@ -9,4 +9,4 @@ def isUnique (string):
             if string[j] == currentChar:
                 return False
     return True
-print(isUnique(str))
+print(isUnique(str)) 
