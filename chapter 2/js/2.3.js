@@ -1,5 +1,6 @@
-// Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list. 
-
+// Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but
+//     the first and last node, not necessarily the exact middle) of a singly linked list, given only access to
+//     that node. 
 class Node{
     constructor(value){
         this.value = value;
@@ -50,8 +51,22 @@ class SLL{
         }
         return second;
     }
-}
 
+    deleteMiddleNode(Node){
+        if(this.head == null || this.head.next == null || this.head.next.next == null){
+            return
+        }
+        let runner = this.head;
+        while(runner.next.next != null){
+            if(runner.next == Node){
+                runner.next = runner.next.next
+                return
+            }
+            runner = runner.next
+        }
+    }
+    
+}
 let node = new Node(3)
 console.log(node)
 let sll = new SLL()
@@ -63,4 +78,6 @@ sll.append(6)
 sll.append(7)
 sll.append(3)
 sll.append(5)
-console.log(sll.kthToLast(5))
+let middleNode = sll.kthToLast(8)
+sll.deleteMiddleNode(middleNode)
+sll.printAll()
