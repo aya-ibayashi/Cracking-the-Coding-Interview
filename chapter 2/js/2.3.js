@@ -1,6 +1,11 @@
 // Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but
 //     the first and last node, not necessarily the exact middle) of a singly linked list, given only access to
 //     that node. 
+
+// I: SLL
+// O: nothing
+// C: ONLY ACCESS TO DELETING Node
+// e: if node is first, last. sll is empty
 class Node{
     constructor(value){
         this.value = value;
@@ -52,18 +57,26 @@ class SLL{
         return second;
     }
 
-    deleteMiddleNode(Node){
-        if(this.head == null || this.head.next == null || this.head.next.next == null){
-            return
+    // deleteMiddleNode(Node){
+    //     if(this.head == null || this.head.next == null || this.head.next.next == null){
+    //         return
+    //     }
+    //     let runner = this.head;
+    //     while(runner.next.next != null){
+    //         if(runner.next == Node){
+    //             runner.next = runner.next.next
+    //             return
+    //         }
+    //         runner = runner.next
+    //     }
+    // }
+
+    deleteMiddleNode(node){
+        if(node == null || node.next == null){
+            return false
         }
-        let runner = this.head;
-        while(runner.next.next != null){
-            if(runner.next == Node){
-                runner.next = runner.next.next
-                return
-            }
-            runner = runner.next
-        }
+        node.value = node.next.value;
+        node.next = node.next.next;
     }
     
 }
