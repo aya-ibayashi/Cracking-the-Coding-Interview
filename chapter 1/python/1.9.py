@@ -46,6 +46,6 @@ def isSubstring(str1, str2):
      
     
 str1 = "waterbottle"
-str2 = "erbottlewat"
+str2 = "tlewaterbot"
 
 print(isStringRotation(str1,str2))
